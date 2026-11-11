@@ -41,7 +41,7 @@ print("You shudder to think what could have happened")
 print(f"Character Profile:\nName: {playerName}\nAge: {playerAge}\nClass: {playerClass}\nFavourite Weapon: {playerWeapon}\nGold: {startingGold}")
 
 
-#Exploring the dungeon cell
+#Waking up in the cell
 print("--- YOU BEGIN YOUR JOURNEY ---")
 print(f"\n{playerName}, you look at the key and gold left behind the rock and consider things for a moment")
 choice = input("Do you take the gold left behind? (yes/no) ").lower()
@@ -53,7 +53,8 @@ elif choice == "no":
     print("You think on it a moment and decide that you don't want to take the gold, but you consider the key again")
 else:
     print("You stand there confused until the guards come back and you are caught")
-    raise SystemExit
+    raise SystemExit("==GAME OVER==The guards catch you before you can escape the cell.")
+
 
 choice = input("Do you take the key? (yes/no) ").lower()
 if choice == "yes":
@@ -63,31 +64,163 @@ elif choice == "no":
     print("You decide against taking the key, but it plays a little on your mind")
     hasKey = False
 else:
-    print("You hesitate too long and the guards notice you.")
-    raise SystemExit
+    print("You hesitate")
+    raise SystemExit("==GAME OVER== You hesitate too long and the guards notice you, ending your escape attempt.")
 
-# Introduce the scene to the player
+      
+# ACT 1: Escaping the cell
 print("You look around the cell and also spot a door, a window, and an old bed.")
 
 # Ask the player what they want to investigate
 choice = input("Do you want to investigate the door, window or bed?: (door/window/bed) ").lower()
 if choice == "door":
     print("You approach the door and try to open it, but it is locked.")
-    if hasKey:
+    if hasKey == True:
         print("You use the key you found to unlock the door and escape the cell!")
     else:
         print("You don't have a key, so you can't open the door.")
-elif choice == "window":
+    choice = input("Do you want to investigate the window or bed?: (window/bed) ").lower()
+
+if choice == "window":
     print("You look out the window and see a beautiful garden outside.")
     print("You also notice that the window is covered in iron bars, so you can't escape that way.")
-elif choice == "bed":
+    choice = input("Do you want to investigate the door or bed?: (door/bed) ").lower()
+
+if choice == "bed":
     print("You check under the bed and find a small note.")
     print("The note reads: 'If you are reading this, you are not alone.")
     print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
-    if hasKey:
+    if hasKey == True:
         print("You are glad you listened to your instincts and took the key")
-    else:
+    elif hasKey == False:
         print("You realise you should have taken the key and gold and are glad to have found the note")
+
+        choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
+    
+    if choice == "rock":
+     print("You check behind the rock and find the small key and some gold again.")
+    print("You take the key and gold and feel a little more confident in your escape attempt.")
+    hasKey = True
+    startingGold += 50
+
+    choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
+    
+    if choice == "door":
+        print("You approach the door and try to open it, but it is locked.")
+        if hasKey == True:
+            print("You use the key you found to unlock the door and escape the cell!")
+            print("==YOU ESCAPED YOUR CELL==")
+        else:
+            print("You don't have a key, so you can't open the door.")
+
+            choice = input("Do you want to investigate the bed or window? (bed/window) ").lower()
+    
+    if choice == "window":
+        print("You look out the window and see a beautiful garden outside.")
+        print("You also notice that the window is covered in iron bars, so you can't escape that way.")
+
+    if choice == "bed":
+        print("You check under the bed and find a small note.")
+    print("The note reads: 'If you are reading this, you are not alone.")
+    print("I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+    if hasKey == True:
+        print("You are glad you listened to your instincts and took the key")
+    elif hasKey == False:
+        print("You realise you should have taken the key and gold and are glad to have found the note")
+        
+        choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
+    else:
+        print("You hesitate")
+        raise SystemExit("==GAME OVER== You hesitate too long and the guards notice you, ending your escape attempt.")
+
+if choice == "rock":
+    print("You check behind the rock and find the small key and some gold again.")
+    print("You take the key and gold and feel a little more confident in your escape attempt.")
+    hasKey = True
+    startingGold += 50
+
+    choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
+
+if choice == "door":
+    print("You approach the door and try to open it, but it is locked.")
+    if hasKey == True:
+        print("You use the key you found to unlock the door and escape the cell!")
+    else:
+        print("You don't have a key, so you can't open the door.")
+    choice = input("Do you want to investigate the window or bed?: (window/bed) ").lower()
+
+if choice == "window":
+    print("You look out the window and see a beautiful garden outside.")
+    print("You also notice that the window is covered in iron bars, so you can't escape that way.")
+    choice = input("Do you want to investigate the door or bed?: (door/bed) ").lower()
+
+if choice == "bed":
+    print("You check under the bed and find a small note.")
+    print("The note reads: 'If you are reading this, you are not alone.")
+    print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+    if hasKey == True:
+        print("You are glad you listened to your instincts and took the key")
+    elif hasKey == False:
+        print("You realise you should have taken the key and gold and are glad to have found the note")
+    choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
+if choice == "rock":
+        print("You check behind the rock and find the small key and some gold again.")
+        print("You take the key and gold and feel a little more confident in your escape attempt.")
+        hasKey = True
+        startingGold += 50
+
+        choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
+    
+if choice == "door":
+        print("You approach the door and try to open it, but it is locked.")
+        if hasKey == True:
+            print("You use the key you found to unlock the door and escape the cell!")
+            print("==YOU ESCAPED YOUR CELL==")
+        else:
+            print("You don't have a key, so you can't open the door.")
+            choice = input("Do you want to investigate the bed or window? (bed/window) ").lower()
+    
+if choice == "window":
+        print("You look out the window and see a beautiful garden outside.")
+        print("You also notice that the window is covered in iron bars, so you can't escape that way.")
+
+if choice == "bed":
+        print("You check under the bed and find a small note.")
+print("The note reads: 'If you are reading this, you are not alone.")
+print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+if hasKey == True:
+        print("You are glad you listened to your instincts and took the key")
+elif hasKey == False:
+        print("You realise you should have taken the key and gold and are glad to have found the note")
+        choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
 else:
-    print("You hesitate and the guards catch you.")
+        print("You hesitate")
+        raise SystemExit("==GAME OVER== You hesitate too long and the guards notice you, ending your escape attempt.")
+
+if choice == "rock":
+        print("You check behind the rock and find the small key and some gold again.")
+        print("You take the key and gold and feel a little more confident in your escape attempt.")
+        hasKey = True
+        startingGold += 50
+
+        choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
+
+ # ACT 2: Moving onto the corridor
+# Introduce the scene
+print("You enter a long, dark corridor")
+print("You notice an old wooden cabinet")
  
+choice = input("Do you open the cabinet? (yes/no): ")
+ 
+if choice == "yes":
+    print("You open the cabinet")
+    print("Inside, you find a {playerWeapon}!")
+ 
+    inventory.append("{playerWeapon}")
+ 
+    print("You pick up the {playerWeapon}")
+ 
+elif choice == "no":
+    print("You leave the cabinet closed.")
+ 
+print(f"\n Your Inventory: {inventory}")
