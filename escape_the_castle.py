@@ -62,5 +62,11 @@ else:
     elif answer == "no":
         print("You decide against taking the key, but it plays a little on your mind")
 
-        
+# Introduce the scene to the player
+print("You wake up in a dark castle cell.")
+print("You can see a door, a window and an old bed")
+ 
+# Ask the player what they want to investigate
+# .lower() converts their answer to lowercase
+choice = input("Do you want to investigate the door, window or bed?: ").lower()        
  
