@@ -30,7 +30,7 @@ print(f"has key")
 print(f"Character Profile:\nName: {playerName}\nAge: {playerAge}\nClass: {playerClass}\nFavourite Weapon: {playerWeapon}\nGold: {startingGold}")
 
  
- #Begin the
+ #Begin the game
 print(f"\n==={playerName}===, you awaken in a damp cell and you don't quite remember how you got here.")
 print("Outside, you hear the sounds of guards patrolling the dungeons.")
 print("Their voices bounce off the stone walls as water drips from the ceiling")
@@ -224,3 +224,40 @@ elif choice == "no":
     print("You leave the cabinet closed.")
  
 print(f"\n Your Inventory: {inventory}")
+
+print("You continue down the corridor and notice three doors, each painted a different color: red, blue, and green.")
+door = input("Which door do you open? ").lower()
+
+if door == "red":
+    print("You enter a room full of treasure!")
+    action = input("Do you take the treasure or leave it? (take/leave) ").lower()
+    if action == "take":
+        print("You fill your bag with gold. You feel rich, but a little guilty.")
+    elif action == "leave":
+        print("You walk away. A wise choice... or was it?")
+    else:
+        print("You stand there confused until the treasure room fades away.")
+elif door == "blue":
+    print("You enter a room with a sleeping dragon.")
+    print("Do you stay to fight the dragon or do you try to sneak past it? (fight/sneak)")
+    action = input("What do you do? ").lower()
+    if action == "fight":
+        print("You fearlessly launch yourself at the dragon and engage the it in battle!")
+    elif action == "sneak":
+        print("You carefully sneak past the dragon. Flinching with each snore as you tip toe")
+    else:
+        print("You stand there confused until the dragon wakes up.")
+        print("The dragon looks at you and pauses, it seems strangely friendly.")
+        print("After an awkward amount of time spent sussing one another out, the dragon goes back to sleep")
+elif door == "green":
+    print("You discover a secret garden.")
+    print("Do you explore the garden or have a restful nap among the beautiful flowers? (explore/nap)")
+    action = input("What do you do? ").lower()
+    if action == "explore":
+        print("You wander through the garden, admiring the beautiful flowers.")
+    elif action == "nap":
+        print("You find a comfortable spot and take a peaceful nap, and awaken feeling incredibly refreshed.")
+    else:
+        print("You stand there admiring the beauty of the garden.")
+else:
+    print("That door doesn't exist.")
