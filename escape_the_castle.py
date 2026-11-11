@@ -30,7 +30,7 @@ print(f"has key")
 print(f"Character Profile:\nName: {playerName}\nAge: {playerAge}\nClass: {playerClass}\nFavourite Weapon: {playerWeapon}\nGold: {startingGold}")
 
  
- #Begin the game
+#Begin the game
 print(f"\n==={playerName}===, you awaken in a damp cell and you don't quite remember how you got here.")
 print("Outside, you hear the sounds of guards patrolling the dungeons.")
 print("Their voices bounce off the stone walls as water drips from the ceiling")
@@ -110,15 +110,28 @@ if choice == "bed":
         if hasKey == True:
             print("You use the key you found to unlock the door and escape the cell!")
             print("==YOU ESCAPED YOUR CELL==")
-        else:
-            print("You don't have a key, so you can't open the door.")
+        if hasKey == False:
+         print("You don't have a key, so you can't open the door.")
 
-            choice = input("Do you want to investigate the bed or window? (bed/window) ").lower()
+        choice = input("Do you want to investigate the bed or window? (bed/window) ").lower()
     
     if choice == "window":
         print("You look out the window and see a beautiful garden outside.")
         print("You also notice that the window is covered in iron bars, so you can't escape that way.")
+        
+        choice = input("Do you want to investigate the door or bed?: (door/bed) ").lower()
 
+if choice == "bed":
+    print("You check under the bed and find a small note.")
+    print("The note reads: 'If you are reading this, you are not alone.")
+    print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+    if hasKey == True:
+        print("You are glad you listened to your instincts and took the key")
+    elif hasKey == False:
+        print("You realise you should have taken the key and gold and are glad to have found the note")
+
+        choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
+    
     if choice == "bed":
         print("You check under the bed and find a small note.")
     print("The note reads: 'If you are reading this, you are not alone.")
@@ -142,10 +155,11 @@ if choice == "rock":
     choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
 
 if choice == "door":
-    print("You approach the door and try to open it, but it is locked.")
+    print("You approach the door and try to open it")
     if hasKey == True:
         print("You use the key you found to unlock the door and escape the cell!")
-    else:
+        print("==YOU ESCAPED YOUR CELL==")
+    if hasKey == False:
         print("You don't have a key, so you can't open the door.")
     choice = input("Do you want to investigate the window or bed?: (window/bed) ").lower()
 
@@ -160,6 +174,7 @@ if choice == "bed":
     print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
     if hasKey == True:
         print("You are glad you listened to your instincts and took the key")
+
     elif hasKey == False:
         print("You realise you should have taken the key and gold and are glad to have found the note")
     choice = input("Do you want to investigate the window, bed, or rock in the wall?: (window/bed/rock) ").lower()
@@ -172,13 +187,10 @@ if choice == "rock":
         choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
     
 if choice == "door":
-        print("You approach the door and try to open it, but it is locked.")
+        print("You approach the door and try to open it.")
         if hasKey == True:
             print("You use the key you found to unlock the door and escape the cell!")
             print("==YOU ESCAPED YOUR CELL==")
-        else:
-            print("You don't have a key, so you can't open the door.")
-            choice = input("Do you want to investigate the bed or window? (bed/window) ").lower()
     
 if choice == "window":
         print("You look out the window and see a beautiful garden outside.")
@@ -204,9 +216,12 @@ if choice == "rock":
         startingGold += 50
 
         choice = input("Do you want to investigate the door, window, or bed?: (door/window/bed) ").lower()
-
+if choice == "door":
+        print("You approach the door and try to open it.")
+        if hasKey == True:
+            print("You use the key you found to unlock the door and escape the cell!")
+            print("==YOU ESCAPED YOUR CELL==")
  # ACT 2: Moving onto the corridor
-# Introduce the scene
 print("You enter a long, dark corridor")
 print("You notice an old wooden cabinet")
  
@@ -215,9 +230,7 @@ choice = input("Do you open the cabinet? (yes/no): ")
 if choice == "yes":
     print("You open the cabinet")
     print("Inside, you find a {playerWeapon}!")
- 
     inventory.append("{playerWeapon}")
- 
     print("You pick up the {playerWeapon}")
  
 elif choice == "no":
