@@ -44,29 +44,50 @@ print(f"Character Profile:\nName: {playerName}\nAge: {playerAge}\nClass: {player
 #Exploring the dungeon cell
 print("--- YOU BEGIN YOUR JOURNEY ---")
 print(f"\n{playerName}, you look at the key and gold left behind the rock and consider things for a moment")
-input("Do you take the key and gold left behind? (yes/no)").lower()
+choice = input("Do you take the gold left behind? (yes/no) ").lower()
 
-if answer == "yes":
+if choice == "yes":
     print("You don't feel good about it but, considering your gold was taken, you decide that this is a good idea")
-    hasKey = True
-elif answer == "no":
-    print("You think on it a moment and decide that you don't want to take the gold, but you consider the keuy again")
-
+    startingGold += 50
+elif choice == "no":
+    print("You think on it a moment and decide that you don't want to take the gold, but you consider the key again")
 else:
     print("You stand there confused until the guards come back and you are caught")
+    raise SystemExit
 
-    input("Do you take the key? (yes/no)").lower()
-    if answer == "yes":
-        print("You decide the ley may be helpful in the future and quickly pocket it")
-        hasKey = True
-    elif answer == "no":
-        print("You decide against taking the key, but it plays a little on your mind")
+choice = input("Do you take the key? (yes/no) ").lower()
+if choice == "yes":
+    print("You decide the key may be helpful in the future and quickly pocket it")
+    hasKey = True
+elif choice == "no":
+    print("You decide against taking the key, but it plays a little on your mind")
+    hasKey = False
+else:
+    print("You hesitate too long and the guards notice you.")
+    raise SystemExit
 
 # Introduce the scene to the player
-print("You wake up in a dark castle cell.")
-print("You can see a door, a window and an old bed")
- 
+print("You look around the cell and also spot a door, a window, and an old bed.")
+
 # Ask the player what they want to investigate
-# .lower() converts their answer to lowercase
-choice = input("Do you want to investigate the door, window or bed?: ").lower()        
+choice = input("Do you want to investigate the door, window or bed?: (door/window/bed) ").lower()
+if choice == "door":
+    print("You approach the door and try to open it, but it is locked.")
+    if hasKey:
+        print("You use the key you found to unlock the door and escape the cell!")
+    else:
+        print("You don't have a key, so you can't open the door.")
+elif choice == "window":
+    print("You look out the window and see a beautiful garden outside.")
+    print("You also notice that the window is covered in iron bars, so you can't escape that way.")
+elif choice == "bed":
+    print("You check under the bed and find a small note.")
+    print("The note reads: 'If you are reading this, you are not alone.")
+    print("'I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+    if hasKey:
+        print("You are glad you listened to your instincts and took the key")
+    else:
+        print("You realise you should have taken the key and gold and are glad to have found the note")
+else:
+    print("You hesitate and the guards catch you.")
  
