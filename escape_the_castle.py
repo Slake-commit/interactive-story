@@ -38,12 +38,12 @@ def cell_door_choice():
 
 
 def bed_choice():
-    print("You check under the bed and find a small note.")
-    print("The note reads: 'If you are reading this, you are not alone.")
-    print("I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
-    if hasKey:
-        print("You are glad you listened to your instincts and took the key")
-    else:
+     print("You check under the bed and find a small note.")
+     print("The note reads: 'If you are reading this, you are not alone.")
+     print("I have left the key to the cell and some gold behind a stone in the wall. Good luck!'")
+     if hasKey:
+         print("You are glad you listened to your instincts and took the key")
+     else:
         print("You realise you should have taken the key and gold and are glad to have found the note")
 
 
@@ -137,7 +137,7 @@ def loose_rock():
         raise SystemExit("==GAME OVER== You hesitate too long and the guards notice you, ending your escape attempt.")
 
 
-# ACT 1: Escaping the cell
+#ACT 1: Escaping the cell
 def cell_escape():
     global escaped
     print("You look around the cell and also spot a door, a window, and an old bed.")
@@ -157,7 +157,7 @@ def cell_escape():
             wrong_answer()
 
 
-# ACT 2: Moving onto the corridor
+#ACT 2: Moving onto the corridor
 def corridor():
     print("You enter a long, dark corridor")
     print("You notice an old wooden cabinet")
@@ -294,7 +294,7 @@ def enemy_encounter():
 
 
 #Run the game
-def main():
+def escape_the_castle():
     intro()
     create_character()
     beginning()
@@ -305,4 +305,4 @@ def main():
     print("\n==TO BE CONTINUED==")
 
 
-main()
+escape_the_castle()
